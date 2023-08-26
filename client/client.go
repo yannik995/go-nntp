@@ -59,7 +59,7 @@ func NewTLS(network, addr string, config *tls.Config) (*Client, error) {
 
 func connect(netconn net.Conn) (*Client, error) {
 	conn := textproto.NewConn(netconn)
-	_, msg, err := conn.ReadCodeLine(200)
+	_, msg, err := conn.ReadCodeLine(201)
 	if err != nil {
 		return nil, err
 	}
