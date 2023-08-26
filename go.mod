@@ -1,4 +1,4 @@
-module github.com/dustin/go-nntp
+module github.com/yannik995/go-nntp
 
 go 1.16
 
