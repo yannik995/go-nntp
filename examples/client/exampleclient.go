@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dustin/go-nntp/client"
+	"github.com/yannik995/go-nntp/client"
 )
 
 const examplepost = `From: <nobody@example.com>
