@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dustin/go-nntp"
+	"github.com/yannik995/go-nntp"
 )
 
 // Client is an NNTP client.
