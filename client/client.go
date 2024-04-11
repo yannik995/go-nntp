@@ -59,7 +59,8 @@ func NewTLS(network, addr string, config *tls.Config) (*Client, error) {
 
 func connect(netconn net.Conn) (*Client, error) {
 	conn := textproto.NewConn(netconn)
-	_, msg, err := conn.ReadCodeLine(200)
+	// rfc3977 5.1.1, Code 200 or 201 are Allowed
+	_, msg, err := conn.ReadCodeLine(20)
 	if err != nil {
 		return nil, err
 	}
