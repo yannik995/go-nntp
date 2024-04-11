@@ -59,15 +59,17 @@ func NewTLS(network, addr string, config *tls.Config) (*Client, error) {
 
 func connect(netconn net.Conn) (*Client, error) {
 	conn := textproto.NewConn(netconn)
-	_, msg, err := conn.ReadCodeLine(201)
+	code, msg, err := conn.ReadCodeLine(0)
 	if err != nil {
 		return nil, err
 	}
-
+	if code != 200 && code != 201 {
+		return nil, textproto.ProtocolError("NNTP Service not available")
+	}
 	return &Client{
-		conn:   conn,
+		conn:    conn,
 		netconn: netconn,
-		Banner: msg,
+		Banner:  msg,
 	}, nil
 }
 
